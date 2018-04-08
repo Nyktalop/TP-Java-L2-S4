@@ -2,7 +2,7 @@ package JeuDeLOie_util;
 
 public class Plateau {
 
-    final private int NB_CASES;
+    final public int NB_CASES;
     private Case[] cases;
 
     /**
@@ -12,9 +12,10 @@ public class Plateau {
     public Plateau(int nbCases) {
         NB_CASES = nbCases;
         cases = new Case[nbCases];
-        for(int i=0;i<nbCases;++i) {
+        for(int i=0;i<nbCases-1;++i) {
             cases[i] = new Case(i);
         }
+        cases[NB_CASES-1] = null;
     }
 
     /**
