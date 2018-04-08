@@ -3,6 +3,9 @@ package JeuDeLOie_util;
 public class Journal {
     private String message;
 
+    /**
+     * Constructeur de Journal
+     */
     public Journal() {
         message = "";
     }

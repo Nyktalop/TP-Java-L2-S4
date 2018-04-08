@@ -22,10 +22,19 @@ public class Case {
         return " numero " + num;
     }
 
+    /**
+     * Getteur du numero de la case
+     * @return numCase
+     */
     public int getNumCase() {
         return this.numCase;
     }
 
+    /**
+     * Gère l'arrive d'une oie sur une case
+     * @param oie
+     * @return la case ou l'oie fini
+     */
     public Case arrive(Oie oie) {
         switch(this.numCase + 1) {
             case 9 :
@@ -74,12 +83,23 @@ public class Case {
         }
     }
 
+    /**
+     * Deplace l'oie sur une autre case, l'oie revient en arrière si elle depasse le max
+     * @param oie
+     * @param numCaseDestination
+     * @return
+     */
     public Case caseSuivante(Oie oie, int numCaseDestination){
         int dest = numCaseDestination >= oie.getPlateau().NB_CASES ? oie.getPlateau().NB_CASES*2 - numCaseDestination - 2   : numCaseDestination;
 
         return oie.getPlateau().getCase(dest);
     }
 
+    /**
+     * Genere le log de depart d'une case
+     * @param oie
+     * @return
+     */
     public Case depart(Oie oie) {
         oie.ajouterMessage("L'oie " + oie.getCouleur() + " est sur la case" + this.getNom());
         return this;

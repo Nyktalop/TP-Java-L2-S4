@@ -11,7 +11,12 @@ public class Oie {
     private int toursBloque = 0;
     private boolean bloquee = false;
 
-
+    /**
+     * Constructeur de Oie, intialise aussi caseCourant et journal.
+     * @param couleur
+     * @param p
+     * @param de
+     */
     public Oie(Couleur couleur, Plateau p, Des de) {
         this.couleur = couleur;
         plateauCourant = p;
@@ -20,14 +25,25 @@ public class Oie {
         journal = new Journal();
     }
 
+    /**
+     * @return Le resultat d'un lancer de des (dépend de l'initialisation)
+     */
     public int lancerDe() {
         return des.lancer();
     }
 
+    /**
+     * ajoute un message au journal de l'Oie
+     * @param message
+     */
     public void ajouterMessage(String message) {
         journal.ajouterMessage(message);
     }
 
+    /**
+     * L'Oie joue un tour
+     * @return si la partie est finie après ce tour
+     */
     public boolean action() {
         if (toursBloque != 0 ) {
             ajouterMessage("L'oie " + this.getCouleur() + " est bloquee pour " + toursBloque-- + " tours");
@@ -55,22 +71,41 @@ public class Oie {
         }
     }
 
+    /**
+     * Setteur du nombre de tours à passer bloquee
+     * @param val
+     */
     public void setToursBloque(int val) {
         toursBloque = val;
     }
 
+    /**
+     * Setteur du bloquage pour un temps indéfini
+     * @param b
+     */
     public void setBloquee(boolean b) {
         bloquee = b;
     }
 
+    /**
+     * Getteur de la couleur de l'Oie
+     * @return couleur
+     */
     public Couleur getCouleur() {
         return this.couleur;
     }
 
+    /**
+     * Getteur du plateau de l'Oie
+     * @return plateau
+     */
     public Plateau getPlateau() {
         return this.plateauCourant;
     }
 
+    /**
+     * Différentes couleurs possibles pour l'Oie
+     */
     public enum Couleur{
         Rouge,
         Bleue,
